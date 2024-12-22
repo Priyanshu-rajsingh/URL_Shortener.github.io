@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div
+      class="container"
+      style="
+        max-width: 600px;
+        margin: 60px auto;
+        padding: 30px;
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      "
+    >
+      <h1
+        class="main-heading"
+        style="
+          font-size: 2.8em;
+          color: #1e90ff;
+          margin-bottom: 25px;
+          font-weight: bold;
+          text-shadow: 1px 2px 5px rgba(30, 144, 255, 0.3);
+          background: linear-gradient(90deg, #1e90ff, #00c6ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        "
+      >
+        Simplify Your Links
+      </h1>
+      <form
+        id="shortenForm"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        "
+      >
+        <div class="input-container" style="display: flex; width: 100%">
+          <input
+            type="url"
+            id="urlInput"
+            placeholder="Paste your URL here..."
+            required
+            style="
+              flex: 1;
+              padding: 15px;
+              font-size: 1.1em;
+              border: 2px solid #ddd;
+              border-radius: 8px 0 0 8px;
+              transition: all 0.3s ease;
+            "
+          />
+          <button
+            type="submit"
+            style="
+              padding: 15px 25px;
+              font-size: 1.1em;
+              border: none;
+              border-radius: 0 8px 8px 0;
+              background-color: #1e90ff;
+              color: #ffffff;
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            "
+            onmouseover="this.style.backgroundColor='#00c6ff'; this.style.transform='scale(1.05)';"
+            onmouseout="this.style.backgroundColor='#1e90ff'; this.style.transform='scale(1)';"
+            onmousedown="this.style.backgroundColor='#004080';"
+          >
+            Shorten URL
+          </button>
+        </div>
+      </form>
+      <div
+        id="result"
+        class="result"
+        style="margin-top: 25px; font-size: 1.2em; color: #333"
+      ></div>
+    </div>
+
+    <section id="test-cases">
+      <h2
+        style="
+          text-align: center;
+          color: #4caf50;
+          font-family: Arial, sans-serif;
+        "
+      >
+        Test Cases
+      </h2>
+      <p style="text-align: center; color: #555">
+        Below are the test cases to verify the functionality of the URL
+        shortener.
+      </p>
+      <div style="overflow-x: auto; margin: 20px">
+        <table
+          style="
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <thead style="background-color: #4caf50; color: #fff">
+            <tr>
+              <th style="padding: 12px">#</th>
+              <th style="padding: 12px">Scenario</th>
+              <th style="padding: 12px">Input</th>
+              <th style="padding: 12px">Expected Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background-color: #f9f9f9">
+              <td style="padding: 10px; text-align: center">1</td>
+              <td style="padding: 10px">Valid Long URL</td>
+              <td style="padding: 10px">https://www.google.com</td>
+              <td style="padding: 10px">
+                Shortened URL is displayed and redirects correctly.
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; text-align: center">2</td>
+              <td style="padding: 10px">Invalid URL</td>
+              <td style="padding: 10px">invalid-url</td>
+              <td style="padding: 10px">
+                Error message: "Please enter a valid URL."
+              </td>
+            </tr>
+            <tr style="background-color: #f9f9f9">
+              <td style="padding: 10px; text-align: center">3</td>
+              <td style="padding: 10px">Empty Input</td>
+              <td style="padding: 10px">(Empty field)</td>
+              <td style="padding: 10px">
+                Error message: "Please enter a valid URL."
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; text-align: center">4</td>
+              <td style="padding: 10px">Very Long URL</td>
+              <td style="padding: 10px">https://example.com/... (long)</td>
+              <td style="padding: 10px">
+                Shortened URL is displayed and redirects correctly.
+              </td>
+            </tr>
+            <tr style="background-color: #f9f9f9">
+              <td style="padding: 10px; text-align: center">5</td>
+              <td style="padding: 10px">Invalid API Key</td>
+              <td style="padding: 10px">Replace API key with invalid one</td>
+              <td style="padding: 10px">
+                Error message: "Failed to shorten URL. Please try again."
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; text-align: center">6</td>
+              <td style="padding: 10px">URL Without HTTP/HTTPS</td>
+              <td style="padding: 10px">www.example.com</td>
+              <td style="padding: 10px">
+                Shortened URL is displayed and works as expected.
+              </td>
+            </tr>
+            <tr style="background-color: #f9f9f9">
+              <td style="padding: 10px; text-align: center">7</td>
+              <td style="padding: 10px">Special Characters in URL</td>
+              <td style="padding: 10px">https://example.com?name=John+Doe</td>
+              <td style="padding: 10px">
+                Shortened URL works and redirects correctly.
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; text-align: center">8</td>
+              <td style="padding: 10px">Nonexistent URL</td>
+              <td style="padding: 10px">https://nonexistent.com</td>
+              <td style="padding: 10px">
+                Shortened URL is created; clicking may not resolve.
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; text-align: center">9</td>
+              <td style="padding: 10px">High Traffic Load</td>
+              <td style="padding: 10px">Submit multiple URLs rapidly</td>
+              <td style="padding: 10px">
+                Each URL is shortened without errors.
+              </td>
+            </tr>
+            <tr style="background-color: #f9f9f9">
+              <td style="padding: 10px; text-align: center">10</td>
+              <td style="padding: 10px">Shorten Shortened URL</td>
+              <td style="padding: 10px">TinyURL or Bitly URL</td>
+              <td style="padding: 10px">New shortened URL is generated.</td>
+            </tr>
+
+            <!-- Add additional rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

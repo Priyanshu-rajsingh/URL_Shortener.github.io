@@ -1,0 +1,96 @@
+/* General Body */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f8fc;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Main Heading */
+.main-heading {
+  font-size: 2.8em;
+  color: #1e90ff;
+  margin-bottom: 25px;
+  font-weight: bold;
+  text-shadow: 1px 2px 5px rgba(30, 144, 255, 0.3);
+  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+}
+
+input[type="url"] {
+  flex: 1;
+  padding: 15px;
+  font-size: 1.1em;
+  border: 2px solid #ddd;
+  border-radius: 8px 0 0 8px;
+  transition: all 0.3s ease;
+}
+
+input[type="url"]:focus {
+  outline: none;
+  border-color: #1e90ff;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  background-color: #1e90ff;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #00c6ff;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #004080;
+}
+
+/* Result Styling */
+.result {
+  margin-top: 25px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.result a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.result a:hover {
+  text-decoration: underline;
+}
